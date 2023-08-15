@@ -2,7 +2,7 @@ package com.lmansfield.bookweb.services;
 
 import java.util.List;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.lmansfield.bookweb.book.Book;
@@ -12,12 +12,19 @@ import com.lmansfield.bookweb.book.Book;
 //and paired with bean/autowired annotation
 public class BookService {
 	
+	private final BookRepository bookRepo;
+	
+	public BookService() {
+		this.bookRepo = null;}
+	
+	@Autowired
+	public BookService(BookRepository bookRepo) {
+		this.bookRepo = bookRepo;
+	}
+	
 	
 	public List<Book> getBooks() {
-		return List.of(new Book(
-				"A Tree Grows in Brooklyn", "Betty Smith", 5, 0L
-				)
-		);
+		return bookRepo.findAll();
 	
 	}
 }

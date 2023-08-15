@@ -49,11 +49,11 @@
 		    <groupId>org.springframework.data</groupId>
 		    <artifactId>spring-data-jpa</artifactId>
 		</dependency>
-<!--		<dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
--->		
+	
 		<!--These three dependencies are required for database connection to work in Spring 3-->
 		<dependency>
 		    <groupId>jakarta.persistence</groupId>

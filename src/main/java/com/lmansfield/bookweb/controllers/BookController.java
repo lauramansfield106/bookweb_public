@@ -16,9 +16,10 @@ public class BookController {
 	
 	private final BookService bookService;
 	
-	@Autowired 
+
 	//autowired = We want to inject the private instance of bookService into this controller
 	//this is a bean
+	@Autowired 
 	public BookController(BookService bookService) {
 		this.bookService = bookService;
 	}
