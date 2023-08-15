@@ -1,13 +1,28 @@
 package com.lmansfield.bookweb.book;
-
 import java.util.Objects;
 
-
-
-
-
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+@Entity //this designates this class as an entity for the database. from jakarta
+@Table //map this student class to table in our database
 public class Book {
-
+	
+	@Id
+	//generate id
+	@SequenceGenerator(
+		name ="book_sequence",
+		sequenceName = "book_sequence",
+		allocationSize = 1
+	)
+	@GeneratedValue(
+		strategy = GenerationType.SEQUENCE, //recommended for postgres
+		generator = "book_sequence"	
+	)
+	
 	private Long id;
 	
 	//other instance vars
