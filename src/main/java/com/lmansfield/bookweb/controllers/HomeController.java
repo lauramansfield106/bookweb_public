@@ -1,4 +1,4 @@
-package com.lmansfield.bookweb;
+package com.lmansfield.bookweb.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,7 +8,7 @@ public class HomeController {
 	
 	@RequestMapping("/")
 	public String hello() {
-		return "hello world";
+		return "hello world!";
 	}
 	
 	@RequestMapping("/home")

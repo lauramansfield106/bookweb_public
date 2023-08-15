@@ -1,4 +1,4 @@
-package com.lmansfield.demo;
+package com.lmansfield.bookweb;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
