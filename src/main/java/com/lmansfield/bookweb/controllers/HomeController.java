@@ -18,10 +18,6 @@ public class HomeController {
 		return "home page";
 	}
 	
-	@RequestMapping("/book")
-	public String book() {
-		Book book = new Book("A Tree Grows in Brooklyn", "Betty Smith", 5, 0L);
-		return book.toString();
-	}
+
 	
 }
