@@ -2,7 +2,7 @@ package com.lmansfield.bookweb.controllers;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lmansfield.bookweb.book.Book;
+import com.lmansfield.bookweb.model.Book;
 
 
 @RestController

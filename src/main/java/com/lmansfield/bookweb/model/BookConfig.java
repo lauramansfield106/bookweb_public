@@ -1,10 +1,10 @@
-package com.lmansfield.bookweb.services;
+package com.lmansfield.bookweb.model;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.lmansfield.bookweb.book.Book;
+import com.lmansfield.bookweb.repositories.BookRepository;
 
 @Configuration
 public class BookConfig {

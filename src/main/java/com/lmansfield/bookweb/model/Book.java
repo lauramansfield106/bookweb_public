@@ -1,4 +1,4 @@
-package com.lmansfield.bookweb.book;
+package com.lmansfield.bookweb.model;
 import java.util.Objects;
 
 import jakarta.persistence.Entity;
@@ -30,6 +30,15 @@ public class Book {
 	private String author;
 	private int rating;
 	
+	//Constructors
+	public Book() {}
+	
+	public Book(String title, String author, int rating, Long id) {
+		this.title = title;
+		this.author = author;
+		this.rating = rating;
+		this.id = id;
+	}
 	
 	//Getters and Setters
 	public String getTitle() {
@@ -57,16 +66,7 @@ public class Book {
 		this.id = id;
 	}
 	
-	//Constructors
-	public Book() {}
-	
-	public Book(String title, String author, int rating, Long id) {
-		this.title = title;
-		this.author = author;
-		this.rating = rating;
-		this.id = id;
-	}
-	
+
 	
 	@Override
 	public String toString() {

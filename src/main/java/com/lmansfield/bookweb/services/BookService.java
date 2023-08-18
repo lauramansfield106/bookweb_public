@@ -5,7 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lmansfield.bookweb.book.Book;
+import com.lmansfield.bookweb.model.Book;
+import com.lmansfield.bookweb.repositories.BookRepository;
 
 @Service
 //service = service component class. tells us this class is a string bean, needs to be instantiated
@@ -26,5 +27,10 @@ public class BookService {
 	public List<Book> getBooks() {
 		return bookRepo.findAll();
 	
+	}
+
+	public void addNewBook(Book book) {
+		bookRepo.save(book);
+		
 	}
 }
