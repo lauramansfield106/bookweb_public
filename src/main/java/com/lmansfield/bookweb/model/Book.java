@@ -8,7 +8,7 @@ import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 @Entity //this designates this class as an entity for the database. from jakarta
-@Table //map this student class to table in our database
+@Table(name="book_info") //map this book class to table in our database
 public class Book {
 	
 	@Id
