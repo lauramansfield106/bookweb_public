@@ -70,7 +70,7 @@ public class BookController {
 	
 	@DeleteMapping("{bookId}")
 	public String deleteBookDetails(Long bookId) {
-		//bookService.deleteBook(bookService.getBook(bookId));
+		bookService.deleteBook(bookId);
 		return "Book deleted.";
 		
 	}
