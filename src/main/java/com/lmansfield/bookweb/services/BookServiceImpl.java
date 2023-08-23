@@ -32,8 +32,8 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public String deleteBook(Long bookId) {
-		// TODO Auto-generated method stub
-		return null;
+		bookRepo.deleteById(bookId);
+		return "Book deleted.";
 	}
 
 	@Override
@@ -43,8 +43,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public List<Book> getAllBooks() {
-		// TODO Auto-generated method stub
-		return null;
+		return bookRepo.findAll();
 	}
 
 }
