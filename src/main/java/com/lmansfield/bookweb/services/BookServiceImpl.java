@@ -3,19 +3,31 @@ package com.lmansfield.bookweb.services;
 import java.util.List;
 
 import com.lmansfield.bookweb.model.Book;
+import com.lmansfield.bookweb.repositories.BookRepository;
 
 public class BookServiceImpl implements BookService {
+	
 
+	BookRepository bookRepo;
+	
+	public BookServiceImpl(BookRepository bookRepo) {
+		super();
+		this.bookRepo = bookRepo;
+	}
+	
+	
+	
 	@Override
 	public String createBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		bookRepo.save(book);
+		return "Book saved.";
 	}
 
 	@Override
 	public String updateBook(Book book) {
-		// TODO Auto-generated method stub
-		return null;
+		bookRepo.save(book);
+		
+		return "Book updated.";
 	}
 
 	@Override
@@ -26,8 +38,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book getBook(Long bookId) {
-		// TODO Auto-generated method stub
-		return null;
+		return bookRepo.findById(bookId).get();
 	}
 
 	@Override
