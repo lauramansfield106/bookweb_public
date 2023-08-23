@@ -2,9 +2,13 @@ package com.lmansfield.bookweb.services;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import com.lmansfield.bookweb.model.Book;
 import com.lmansfield.bookweb.repositories.BookRepository;
 
+@Service
+//service = service component class. 
 public class BookServiceImpl implements BookService {
 	
 
