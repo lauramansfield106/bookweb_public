@@ -74,16 +74,7 @@ public class BookController {
 		return "Book deleted.";
 		
 	}
-//	@GetMapping
-//	public List<Book> getBooks() {
-//		return bookService.getBooks();
-//	
-//	}
-//	
-//	@PostMapping
-//	public void addBook(@RequestBody Book book) {
-//		bookService.addNewBook(book);
-//	}
+
 
 	
 }

@@ -70,6 +70,14 @@
 		</dependency>
 
 
+		<!-- thymeleaf -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
+		   </dependency>
+		   
+		   
+
 	</dependencies>
 
 
@@ -81,7 +89,16 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			
+			<!--front end maven plugin-->		
+			<!--<plugin>
+				<groupId>com.github.eirslett</groupId>
+				<artifactId>frontend-maven-plugin</artifactId>
+				<version>LATEST_VERSION</version>
+			</plugin>
+			-->
 		</plugins>
+
 	</build>
 
 </project>
