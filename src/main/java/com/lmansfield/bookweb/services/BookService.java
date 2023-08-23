@@ -1,6 +1,9 @@
-//package com.lmansfield.bookweb.services;
-//
-//import java.util.List;
+package com.lmansfield.bookweb.services;
+
+import com.lmansfield.bookweb.model.Book;
+
+
+import java.util.List;
 //
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
@@ -11,7 +14,19 @@
 //@Service
 ////service = service component class. tells us this class is a string bean, needs to be instantiated
 ////and paired with bean/autowired annotation
-//public class BookService {
+public interface BookService {
+	public String createBook(Book book);
+	public String updateBook(Book book);
+	public String deleteBook(Long bookId);
+	public Book getBook(Long bookId);
+	/***
+	 * Get all books in the database
+	 * @return List of books
+	 */
+	public List<Book> getAllBooks();
+	
+}
+
 //	
 //	private final BookRepository bookRepo;
 //	
