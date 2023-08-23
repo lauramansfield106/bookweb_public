@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 //import com.lmansfield.bookweb.services.BookService;
 import com.lmansfield.bookweb.model.Book;
 import com.lmansfield.bookweb.repositories.BookRepository;
+import com.lmansfield.bookweb.services.BookService;
 
 import java.util.List;
 
@@ -20,9 +22,14 @@ import java.util.List;
 @RequestMapping("/book")
 public class BookController {
 	
-//	private final BookService bookService;
+
+	private BookService bookService;
 	
-	Book book;
+	public BookController(BookService bookService) {
+		super();
+		this.bookService = bookService;
+	}
+
 //	
 //	//autowired = We want to inject the private instance of bookService into this controller
 //	//this is a bean
@@ -32,35 +39,38 @@ public class BookController {
 //	}
 	
 	/***
-	 * Get book by id
+	 * Get book by bookId
 	 * @param id
-	 * @return
+	 * @return book
 	 */
 	@GetMapping("{bookId}")
-	public Book getBook(Long id) {
-		
-		return book;
-		//return new  Book("The Cat in the Hat", "Doctor Seuss", 5, 3L);
+	public Book getBook(@PathVariable("bookId") Long bookId) {
+		return bookService.getBook(bookId);		
+	}
+	
+	@GetMapping()
+	public List<Book> getAllBooks() {
+		return bookService.getAllBooks();		
 	}
 		
 	//Here, we add the RequestBody annotation to indicate we will get the details from a post mapping
 	@PostMapping
 	public String createBookDetails(@RequestBody Book book) {
-		this.book = book;
+		bookService.createBook(book);
 		return "Book created.";
 		
 	}
 	
 	@PutMapping
 	public String updateBookDetails(@RequestBody Book book) {
-		this.book = book;
+		bookService.createBook(book);
 		return "Book updated.";
 		
 	}
 	
 	@DeleteMapping("{bookId}")
-	public String deleteBookDetails(String bookID) {
-		this.book = null;
+	public String deleteBookDetails(Long bookId) {
+		//bookService.deleteBook(bookService.getBook(bookId));
 		return "Book deleted.";
 		
 	}
