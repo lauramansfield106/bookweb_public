@@ -7,6 +7,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,7 +23,7 @@ import com.lmansfield.bookweb.services.BookService;
 import java.util.List;
 
 @Controller
-@RequestMapping("/book")
+//@RequestMapping("/")
 public class BookController {
 	
 
@@ -36,11 +37,27 @@ public class BookController {
 
 	
 	
-	@GetMapping("/books")
+	@GetMapping("/")
 	public String viewBooks(Model model) {
 		model.addAttribute("listBooks", bookService.getAllBooks());
 		return "books";
 	}
+	
+	
+	@GetMapping("/showNewBookForm")
+	public String showNewBookForm(Model model) {
+		Book book = new Book();
+		model.addAttribute("book", book);
+		return "new_book";
+	}
+	
+	@PostMapping("/saveBook")
+	public String saveBook(@ModelAttribute("book") Book book) {
+		bookService.createBook(book);
+		return "redirect:/";
+	}
+	
+	
 	
 	
 //	@GetMapping("{bookId}")
@@ -67,13 +84,13 @@ public class BookController {
 //		return "Book updated.";
 //		
 //	}
-	
-	@DeleteMapping("{bookId}")
-	public String deleteBookDetails(@PathVariable("bookId") Long bookId) {
-		bookService.deleteBook(bookId);
-		return "Book deleted.";
-		
-	}
+//	
+//	@DeleteMapping("{bookId}")
+//	public String deleteBookDetails(@PathVariable("bookId") Long bookId) {
+//		bookService.deleteBook(bookId);
+//		return "Book deleted.";
+//		
+//	}
 
 
 	
