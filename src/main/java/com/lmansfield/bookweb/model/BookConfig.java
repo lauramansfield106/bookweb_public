@@ -6,10 +6,10 @@ import org.springframework.context.annotation.Configuration;
 
 import com.lmansfield.bookweb.repositories.BookRepository;
 
-@Configuration
-public class BookConfig {
-
-
+//@Configuration
+//public class BookConfig {
+//
+//
 //	@Bean
 //	CommandLineRunner commandLineRunner(BookRepository repo) {
 //		return args -> {		
@@ -18,6 +18,6 @@ public class BookConfig {
 //
 //		};
 //	}
-}
+//}
 
 

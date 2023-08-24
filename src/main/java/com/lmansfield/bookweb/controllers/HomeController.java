@@ -13,16 +13,6 @@ public class HomeController {
 		return "index";
 	}
 	
-	@RequestMapping("/hello")
-	public String hello() {
-		return "hello world!";
-	}
-	
-	@RequestMapping("/home")
-	public String home() {
-		return "home page";
-	}
-	
 
 	
 }
