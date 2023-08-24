@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 //import com.lmansfield.bookweb.services.BookService;
@@ -21,6 +22,7 @@ import com.lmansfield.bookweb.repositories.BookRepository;
 import com.lmansfield.bookweb.services.BookService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 //@RequestMapping("/")
@@ -29,7 +31,7 @@ public class BookController {
 
 	private BookService bookService;
 	
-	//you could use the autowire annotation to avoid building this constructor
+	//you could use the autowired annotation to avoid building this constructor
 	public BookController(BookService bookService) {
 		super();
 		this.bookService = bookService;
@@ -67,6 +69,17 @@ public class BookController {
 		return "update_book";
 	}
 	
+	
+	//remove a book selected by user
+	//in the jsp file, we pass the  href as "/remove-book?id=${book.id}" to get the parameter
+	@GetMapping("/deleteBook/{id}")
+	public String removeBook(@PathVariable(value = "id") Long id) {
+		
+		bookService.deleteBook(id);
+		
+		
+		return "redirect:/"; 
+	}
 	
 	
 

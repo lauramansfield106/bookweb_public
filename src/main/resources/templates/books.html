@@ -39,7 +39,7 @@
 
 					<td><a th:href="@{/showEditBookForm/{id}(id=${book.id})}" type="button"
 						class="btn btn-secondary"> Edit Book </a> <a
-						th:href="@{/showDeleteBookForm}" type="button"
+						th:href="@{/deleteBook/{id}(id=${book.id})}" type="button"
 						class="btn btn-danger"> Delete Book </a></td>
 
 				</tr>
