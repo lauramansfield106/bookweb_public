@@ -8,7 +8,7 @@ import com.lmansfield.bookweb.model.Book;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/")
+	@RequestMapping("/home")
 	public String index() {
 		return "index";
 	}
