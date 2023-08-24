@@ -2,7 +2,7 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head lang="en">
 <meta charset="UTF-8" />
-<title>Add Book</title>
+<title>Update Book</title>
 <!--  <link rel="stylesheet" href="/css/main.css" /> -->
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
@@ -17,18 +17,18 @@
 
 		<form action="#" th:action="@{/saveBook}" th:object="${book}" method="POST">
 			
-
-			<input type="text" th:field="*{author}" placeholder="Author"
+			<input type="hidden" th:field="*{id}">
+			<input type="text" th:field="*{author}"
 				class="form-control">
-			<input type="text" th:field="*{title}" placeholder="Title"
+			<input type="text" th:field="*{title}" 
 				class="form-control">	
-			<input type="text" th:field="*{rating}" placeholder="Rating"
+			<input type="text" th:field="*{rating}" 
 				class="form-control">	
 			
-		<button type="submit" class="btn btn-info col-2">Save Book</button>
+		<button type="submit" class="btn btn-info col-2">Update Book</button>
 		
 		</form>
-
+ 		<a th:href="@{/}"> Back to Book List</a>
 
 
 	</div>
