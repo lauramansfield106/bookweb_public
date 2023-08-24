@@ -1,6 +1,7 @@
 package com.lmansfield.bookweb.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
@@ -20,26 +21,15 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public String createBook(Book book) {
-		if(book.getId()==null) {
-			System.out.println("here");
-			bookRepo.save(book);
-			return "Book saved.";
-		}
-		else if (bookRepo.existsById(book.getId())){
-			return "Book ID already exists.";
-		}
-		else {
-			return "error";
-		}
-
-	}
-
-	@Override
-	public String updateBook(Book book) {
 		bookRepo.save(book);
-
-		return "Book updated.";
+		return "Book saved.";
 	}
+
+//	@Override
+//	public String updateBook(Book book) {
+//		bookRepo.save(book);
+//		return "Book updated.";
+//	}
 
 	@Override
 	public String deleteBook(Long bookId) {
@@ -49,6 +39,7 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public Book getBook(Long bookId) {
+
 		return bookRepo.findById(bookId).get();
 	}
 
