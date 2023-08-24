@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head lang="en">
+<meta charset="UTF-8" />
+<title>Add Book</title>
+<!--  <link rel="stylesheet" href="/css/main.css" /> -->
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
+</head>
+<body>
+	<div class="container">
+
+
+
+		<form action="#" th:action="@{/saveBook}" th:object="${book}" method="POST">
+			
+
+			<input type="text" th:field="*{author}" placeholder="Author"
+				class="form-control">
+			<input type="text" th:field="*{title}" placeholder="Title"
+				class="form-control">	
+			<input type="text" th:field="*{rating}" placeholder="Rating"
+				class="form-control">	
+			
+		<button type="submit" class="btn btn-info col-2">Save Book</button>
+		<input type="hidden" id="id" th:field="*{id}">
+		</form>
+
+
+
+	</div>
+
+</body>
