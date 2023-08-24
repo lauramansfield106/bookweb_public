@@ -1,6 +1,8 @@
 package com.lmansfield.bookweb.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -19,55 +21,52 @@ import com.lmansfield.bookweb.services.BookService;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/book")
 public class BookController {
 	
 
 	private BookService bookService;
 	
+	//you could use the autowire annotation to avoid building this constructor
 	public BookController(BookService bookService) {
 		super();
 		this.bookService = bookService;
 	}
 
-//	
-//	//autowired = We want to inject the private instance of bookService into this controller
-//	//this is a bean
-//	@Autowired 
-//	public BookController(BookService bookService) {
-//		this.bookService = bookService;
+	
+	
+	@GetMapping("/books")
+	public String viewBooks(Model model) {
+		model.addAttribute("listBooks", bookService.getAllBooks());
+		return "books";
+	}
+	
+	
+//	@GetMapping("{bookId}")
+//	public Book getBook(@PathVariable("bookId") Long bookId) {
+//		return bookService.getBook(bookId);		
 //	}
-	
-	/***
-	 * Get book by bookId
-	 * @param id
-	 * @return book
-	 */
-	@GetMapping("{bookId}")
-	public Book getBook(@PathVariable("bookId") Long bookId) {
-		return bookService.getBook(bookId);		
-	}
-	
-	@GetMapping()
-	public List<Book> getAllBooks() {
-		return bookService.getAllBooks();		
-	}
-		
-	//Here, we add the RequestBody annotation to indicate we will get the details from a post mapping
-	@PostMapping
-	public String createBookDetails(@RequestBody Book book) {
-		bookService.createBook(book);
-		return "Book created.";
-		
-	}
-	
-	@PutMapping
-	public String updateBookDetails(@RequestBody Book book) {
-		bookService.createBook(book);
-		return "Book updated.";
-		
-	}
+//	
+//	@GetMapping()
+//	public List<Book> getAllBooks() {
+//		return bookService.getAllBooks();		
+//	}
+//		
+//	//Here, we add the RequestBody annotation to indicate we will get the details from a post mapping
+//	@PostMapping
+//	public String createBookDetails(@RequestBody Book book) {
+//		bookService.createBook(book);
+//		return "Book created.";
+//		
+//	}
+//	
+//	@PutMapping
+//	public String updateBookDetails(@RequestBody Book book) {
+//		bookService.createBook(book);
+//		return "Book updated.";
+//		
+//	}
 	
 	@DeleteMapping("{bookId}")
 	public String deleteBookDetails(@PathVariable("bookId") Long bookId) {

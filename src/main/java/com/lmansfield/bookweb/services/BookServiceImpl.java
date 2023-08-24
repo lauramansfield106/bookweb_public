@@ -10,27 +10,29 @@ import com.lmansfield.bookweb.repositories.BookRepository;
 @Service
 //service = service component class. 
 public class BookServiceImpl implements BookService {
-	
 
 	BookRepository bookRepo;
-	
+
 	public BookServiceImpl(BookRepository bookRepo) {
 		super();
 		this.bookRepo = bookRepo;
 	}
-	
-	
-	
+
 	@Override
 	public String createBook(Book book) {
-		bookRepo.save(book);
-		return "Book saved.";
+		if(bookRepo.existsById(book.getId())){
+			return "Book ID already exists.";
+		}
+		else {
+			bookRepo.save(book);
+			return "Book saved.";
+		}
 	}
 
 	@Override
 	public String updateBook(Book book) {
 		bookRepo.save(book);
-		
+
 		return "Book updated.";
 	}
 
