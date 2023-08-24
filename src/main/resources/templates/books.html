@@ -21,7 +21,7 @@
 					<th>Title</th>
 					<th>Author</th>
 					<th>Rating</th>
-				
+
 					<th></th>
 
 				</tr>
@@ -34,13 +34,14 @@
 					<td th:text="${book.title}"></td>
 					<td th:text="${book.author}"></td>
 					<td th:text="${book.rating}"></td>
-					
-					
 
-					<td><a th:href="@{/showEditBookForm/{id}(id=${book.id})}" type="button"
-						class="btn btn-secondary"> Edit Book </a> <a
-						th:href="@{/deleteBook/{id}(id=${book.id})}" type="button"
-						class="btn btn-danger"> Delete Book </a></td>
+
+
+					<td><a th:href="@{/showEditBookForm/{id}(id=${book.id})}"
+						type="button" class="btn btn-secondary"> Edit Book </a> 
+						<a th:href="@{/deleteBook/{id}(id=${book.id})}" type="button"
+						class="btn btn-danger"> Delete Book </a>
+					</td>
 
 				</tr>
 			</tbody>

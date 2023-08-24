@@ -25,11 +25,6 @@ public class BookServiceImpl implements BookService {
 		return "Book saved.";
 	}
 
-//	@Override
-//	public String updateBook(Book book) {
-//		bookRepo.save(book);
-//		return "Book updated.";
-//	}
 
 	@Override
 	public String deleteBook(Long bookId) {
