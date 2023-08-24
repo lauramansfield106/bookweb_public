@@ -1,6 +1,7 @@
 package com.lmansfield.bookweb.model;
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
@@ -22,6 +23,11 @@ public class Book {
 		strategy = GenerationType.SEQUENCE, //recommended for postgres
 		generator = "book_sequence"	
 	)
+	
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//
+//	
 	
 	private Long id;
 	

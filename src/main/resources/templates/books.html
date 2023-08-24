@@ -4,47 +4,52 @@
 <meta charset="UTF-8" />
 <title>all the books</title>
 <!--  <link rel="stylesheet" href="/css/main.css" /> -->
-<link rel="stylesheet" 
-href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" 
-integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
-crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 
 </head>
 <body>
 	<div class="container">
-	<h1>All Books</h1>
-	
-	<table class="table">
+		<h1>All Books</h1>
 
-		<thead>
-			<tr>
-				<th>Title</th>
-				<th>Author</th>
-				<th>Rating</th>
-				<th>Rating</th>
+		<table class="table">
+
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Rating</th>
 				
-			</tr>
+					<th></th>
+
+				</tr>
 
 
-		</thead>
+			</thead>
 
-		<tbody>
-			<tr th:each="book : ${listBooks}">
-				<td th:text="${book.title}"></td>
-				<td th:text="${book.author}"></td>
-				<td th:text="${book.rating}"></td>
-				<td>
-				<a th:href="@{/showEditBookForm}" type = "button" class = "btn btn-secondary"> Edit Book </a>
-				<a th:href="@{/showDeleteBookForm}" type = "button" class = "btn btn-danger"> Delete Book </a>
-				</td>
-				
-			</tr>	
-		</tbody>
+			<tbody>
+				<tr th:each="book : ${listBooks}">
+					<td th:text="${book.title}"></td>
+					<td th:text="${book.author}"></td>
+					<td th:text="${book.rating}"></td>
+					
+					
 
-	</table>
-	
-	<a th:href="@{/showNewBookForm}" class = "btn btn-success"> Add Book </a>
-	
-</div>
+					<td><a th:href="@{/showEditBookForm/{id}(id=${book.id})}" type="button"
+						class="btn btn-secondary"> Edit Book </a> <a
+						th:href="@{/showDeleteBookForm}" type="button"
+						class="btn btn-danger"> Delete Book </a></td>
+
+				</tr>
+			</tbody>
+
+		</table>
+
+		<a th:href="@{/showNewBookForm}" class="btn btn-success"> Add Book
+		</a>
+
+	</div>
 </body>
 </html>
