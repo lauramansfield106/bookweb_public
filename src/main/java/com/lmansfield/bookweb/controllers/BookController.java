@@ -59,38 +59,17 @@ public class BookController {
 	
 	
 	
+	@GetMapping("/showEditBookForm/{id}")
+	public String showEditBookForm(@PathVariable(value = "id") Long id, Model model) {
+		Book book = bookService.getBook(id);
+		
+		model.addAttribute("book", book);
+		return "update_book";
+	}
 	
-//	@GetMapping("{bookId}")
-//	public Book getBook(@PathVariable("bookId") Long bookId) {
-//		return bookService.getBook(bookId);		
-//	}
-//	
-//	@GetMapping()
-//	public List<Book> getAllBooks() {
-//		return bookService.getAllBooks();		
-//	}
-//		
-//	//Here, we add the RequestBody annotation to indicate we will get the details from a post mapping
-//	@PostMapping
-//	public String createBookDetails(@RequestBody Book book) {
-//		bookService.createBook(book);
-//		return "Book created.";
-//		
-//	}
-//	
-//	@PutMapping
-//	public String updateBookDetails(@RequestBody Book book) {
-//		bookService.createBook(book);
-//		return "Book updated.";
-//		
-//	}
-//	
-//	@DeleteMapping("{bookId}")
-//	public String deleteBookDetails(@PathVariable("bookId") Long bookId) {
-//		bookService.deleteBook(bookId);
-//		return "Book deleted.";
-//		
-//	}
+	
+	
+
 
 
 	
