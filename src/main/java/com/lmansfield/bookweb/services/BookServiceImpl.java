@@ -20,13 +20,18 @@ public class BookServiceImpl implements BookService {
 
 	@Override
 	public String createBook(Book book) {
-		if(bookRepo.existsById(book.getId())){
-			return "Book ID already exists.";
-		}
-		else {
+		if(book.getId()==null) {
+			System.out.println("here");
 			bookRepo.save(book);
 			return "Book saved.";
 		}
+		else if (bookRepo.existsById(book.getId())){
+			return "Book ID already exists.";
+		}
+		else {
+			return "error";
+		}
+
 	}
 
 	@Override
