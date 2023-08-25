@@ -14,7 +14,7 @@ Upcoming Features:
 Technologies Used:
 * JavaSE 17
 * Apache Maven 3
-* Springboot 3
+* Spring Boot 3
 * Node 16
 * Bootstrap 4
 * Thymeleaf
